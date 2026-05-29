@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PT. Maya Langgeng Abadi | Supplier & Kontraktor</title>
+    <style>
+        /* Reset & General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            color: #333;
+            background-color: #f9f9f9;
+            line-height: 1.1;
+        }
+        
+        /* Color Palette Constants */
+        :root {
+            --primary-color: #dc2626; /* Merah Bold */
+            --dark-color: #1f2937;    /* Abu-abu Gelap */
+            --light-color: #ffffff;   /* Putih */
+            --accent-color: #f3f4f6;  /* Abu-abu Terang */
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--light-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 10%; 
+        }
+        nav .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        header {
+            background: linear-gradient(rgba(31, 41, 55, 0.85), rgba(31, 41, 55, 0.85)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070') no-repeat center center/cover;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--light-color);
+            padding: 0 20px;
+        }
+        header h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        header p {
+            font-size: 18px;
+            margin-bottom: 25px;
+            max-width: 600px;
+        }
+        .btn {
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            padding: 12px 25px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background-color: #b91c1c;
+        }
+
+        /* Section Global Settings */
+        section {
+            padding: 70px 10%;
+        }
+        section h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+            position: relative;
+            color: var(--dark-color);
+        }
+        section h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Tentang Kami & Legalitas Split */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        .card {
+            background: var(--light-color);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        /* Visi Misi */
+        .bg-dark {
+            background-color: var(--dark-color);
+            color: var(--light-color);
+        }
+        .bg-dark h2 {
+            color: var(--light-color);
+        }
+        .vision-mission-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+        }
+        .mission-item {
+            background-color: rgba(255,255,255,0.05);
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--primary-color);
+            border-radius: 0 4px 4px 0;
+        }
+
+        /* Bidang Usaha (KBLI) */
+        .kbli-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .kbli-item {
+            background: var(--light-color);
+            padding: 20px;
+            border-radius: 6px;
+            border-top: 3px solid var(--primary-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .kbli-code {
+            font-weight: bold;
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Tabel Pengalaman */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--light-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        th {
+            background-color: var(--primary-color);
+            color: var(--light-color);
+        }
+        tr:hover {
+            background-color: #fbfbfb;
+        }
+
+        /* Footer / Kontak */
+        footer {
+            background-color: var(--dark-color);
+            color: #9ca3af;
+            padding: 50px 10% 20px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .footer-section h3 {
+            color: var(--light-color);
+            margin-bottom: 15px;
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #374151;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav { flex-direction: column; padding: 15px; }
+            nav ul { margin-top: 15px; }
+            .grid-2, .vision-mission-container { grid-template-columns: 1fr; }
+            header h1 { font-size: 32px; }
+            table { font-size: 14px; display: block; overflow-x: auto; }
+        }
+    </style>
+</head>
+<body>
+    <nav>        
+        <div class="logo"><img src="https://github.com/mayalanggengabadi/compro/blob/main/logo.png" alt="LOGO" width="50%" height="50%">
+        </div>        
+        <ul>
+            <li><a href="#tentang">Tentang Kami</a></li>
+            <li><a href="#visi-misi">Visi & Misi</a></li>
+            <li><a href="#bidang-usaha">Bidang Usaha</a></li>
+            <li><a href="#pengalaman">Pengalaman</a></li>
+            <li><a href="#kontak">Hubungi Kami</a></li>
+        </ul>
+    </nav>
+
+    <header>        
+        <h1>PT. MAYA LANGGENG ABADI</h1>
+        <p>General Supplier & Kontraktor tepercaya untuk kemitraan perusahaan nasional maupun instansi pemerintah di dalam dan luar kota.</p>
+        <a href="https://wa.me/6285211562200" class="btn" target="_blank">Hubungi via WhatsApp</a>
+    </header>
+
+    <section id="tentang">
+        <div class="grid-2">
+            <div class="card">
+                <h2>Tentang Kami</h2>
+                <p style="margin-top: 20px; text-align: justify;">
+                    Seiring dengan kemajuan dalam pembangunan di Indonesia, dan sebagai bagian dari usaha untuk meningkatkan kapasitas Sumber Daya Manusia (SDM) dalam menghadapi Era Globalisasi dan menyambut perkembangan pasar bebas (Free Trade) yang telah menjadi fenomena yang dominan dalam dunia bisnis Global, pada tanggal <strong>24 Juni 2024</strong>, <strong>PT MAYA LANGGENG ABADI</strong> didirikan sesuai dengan ketentuan yang berlaku di Republik Indonesia. Pendirian ini didasarkan Akte Pendirian yang dikeluarkan oleh Notaris Abdul Rahim Arifin, S.H., M.Kn., dengan nomer 22, pada tanggal yang sama di kota Jakarta Barat.
+                                </p>
+                <p><strong>PT MAYA LANGGENG ABADI</strong> merupakan perusahaan yang bergerak dibidang general supplier & Kontraktor yang menawarkan kerjasama dengan perusahaan swasta nasional maupun instansi pemerintah, yang dapat dipercaya dalam menjalin kerjasama yang baik dengan pelanggan di dalam kota maupun di luar kota.</p>
+            </div>
+            <div class="card">
+                <h2>Manajemen Perusahaan</h2>
+                <p style="margin-top: 20px; text-align: justify;">
+                    Perusahaan ini berdiri sebagai PT ( Perseroan Terbatas ), dengan kepemilikan saham didasarkan pada investasi modal yang telah disepakati.
+                                </p>
+                <p>Komisaris memiliki wewenang untuk mengawasi pelaksanaan kebijakan oleh Direksi dalam pengelolaan perusahaan, sekaligus memberikan panduan dan nasihat kepada Direksi.</p>
+                <p>Kepengurusan Perseroan terdiri dari satu orang direktur yang memiliki tanggung jawab sepenuhnya dalam mengarahkan dan menjalankan perusahaan sesuai dengan maksud serta Tujuan.</p>
+                <p>Dalam melaksanakan tanggung jawabnya, Direktu dibantu oleh beberapa Staf.</p>
+            </div>
+            <div class="card">
+                <h2>Legalitas Resmi</h2>
+                <ul style="list-style: none; margin-top: 20px;">
+                    <li style="margin-bottom: 10px;"><strong>Aket Pendirian:</strong> : Notaris Abdul Rahman Arifin, S.H., M.kn No. 22 Tanggal 25 Juni 2024</li>
+                    <li style="margin-bottom: 10px;"><strong>Nomer Induk Perusahaan (NIB):</strong> 2706240087129</li>
+                    <li style="margin-bottom: 10px;"><strong>SK Kemenkumham:</strong> AHU-0046262.AH.01.01.TAHUN 2024</li>
+                    <li style="margin-bottom: 10px;"><strong>NPWP:</strong> 19.870.058.5-004.000</li>
+                    <li style="margin-bottom: 10px;"><strong>Surat PKP:</strong> S-219/PKP/KPP.200403/2024</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="visi-misi" class="bg-dark">
+        <h2>Visi & Misi</h2>
+        <div class="vision-mission-container">
+            <div>
+                <h3 style="color: var(--primary-color); margin-bottom: 10px;">VISI</h3>
+                <p style="text-align: justify;">Terus berprogres sebagai perusahaan general supplier dan Kontraktor yang mampu secara efisien dan efektif memenuhi permintaan pelanggan dan mitra kerja, serta konsisten meningkatkan kualitas produk dan layanan.</p>
+            </div>
+            <div>
+                <h3 style="color: var(--primary-color); margin-bottom: 15px;">MISI</h3>
+                <div class="mission-item">Menyediakan layanan unggul dan solusi cepat, efisien, serta profesional demi membangun hubungan jangka panjang yang kuat.</div>
+                <div class="mission-item">Berkomitmen menjaga standar kualitas tertinggi di semua produk melalui pengawasan yang ketat demi kepuasan pelanggan.</div>
+                <div class="mission-item">Membangun kemitraan yang kuat dan berkelanjutan dengan pelanggan, pemasok, dan stakeholder lainnya.</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="bidang-usaha">
+        <h2>Bidang Usaha (KBLI)</h2>
+        <p style="text-align: center; margin-bottom: 30px; color: #666;">Fokus bisnis perdagangan besar dan jasa konstruksi resmi terdaftar:</p>
+        <div class="kbli-grid">
+            <div class="kbli-item"><span class="kbli-code">KBLI 46511</span>Perdagangan Besar Komputer dan Perlengkapannya</div>
+            <div class="kbli-item"><span class="kbli-code">KBLI 46422</span>Perdagangan Besar Barang Percetakan Dan Penerbitan Dalam Berbagai Bentuk</div>
+            <div class="kbli-item"><span class="kbli-code">KBLI 46900</span>Perdagangan Besar Berbagai Macam Barang</div>
+            <div class="kbli-item"><span class="kbli-code">KBLI 46591</span>Perdagangan Besar Mesin Kantor dan Industri Pengolahan, Suku Cadang Dan Perlengkapannya</div>
+            <div class="kbli-item"><span class="kbli-code">KBLI 46491</span>Perdagangan Besar Peralatan Rumah Tangga</div>
+            <div class="kbli-item"><span class="kbli-code">KBLI 46638</span>Perdagangan Besar Material Bangunan</div>
+            <div class="kbli-item"><span class="kbli-code">KBLI 46639</span>Perdagangan Besar Bahan Konstruksi Lainnya</div>
+            <div class="kbli-item"><span class="kbli-code">KBLI 46633</span>Perdagangan Besar Genteng,Batu Bata,Ubin Dan Sejenisnya Dari Tanah Liat,Kapur,Semen Atau Kaca</div>
+            <div class="kbli-item"><span class="kbli-code">KBLI 46632</span>Perdagangan Besar Kaca</div>
+            <div class="kbli-item"><span class="kbli-code">KBLI 46635</span>Perdagangan Besar Bahan Konstruksi Dari Porselen</div>
+            <div class="kbli-item"><span class="kbli-code">KBLI 46651</span>Perdagangan Besar Bahan & Barang Kimia</div>
+            <div class="kbli-item"><span class="kbli-code">KBLI 82302</span>Jasa Penyelenggara Event Khusus (Special Event)</div>
+            <div class="kbli-item"><span class="kbli-code">KBLI 43211</span>Instalasi Listrik</div>
+            <div class="kbli-item"><span class="kbli-code">KBLI 41012</span>Konstruksi Gedung Perkantoran</div>
+            <div class="kbli-item"><span class="kbli-code">KBLI 43303</span>Pengecatan</div>
+        </div>
+    </section>
+
+    <section id="pengalaman" style="background-color: var(--accent-color);">
+        <h2>Pengalaman Kerja</h2>
+        <p style="text-align: center; margin-bottom: 30px; color: #666;">Rekam jejak kepuasan pelanggan dan proyek yang berhasil diselesaikan:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama Customer</th>
+                    <th>Deskripsi Pekerjaan / Kode Proyek</th>
+                    <th>Periode</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>1</td>
+                    <td>TK Negeri Tegal</td>
+                    <td>Pengadaan Belanja Alat/Bahan untuk Kegiatan Kantor- Bahan Cetak</td>
+                    <td>November 2024</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>TK Negeri Tegal</td>
+                    <td>Pengadaan Belanja Sewa Alat Reproduksi (Penggandaan)</td>
+                    <td>November 2024</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>TK Negeri Tegal</td>
+                    <td>Pengadaan Belanja Bahan-Bahan Lainnya</td>
+                    <td>November 2024</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>TK Negeri Tegal</td>
+                    <td>Pengadaan Belanja Sewa Alat Reproduksi (Penggandaan)</td>
+                    <td>November 2024</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>TK Negeri Tegal</td>
+                    <td>Pengadaan Belanja Pemeliharaan Bangunan Gedung-Bangunan Gedung Tempat Kerja-Bangunan Gedung Tempat Pendidikan</td>
+                    <td>November 2024</td>
+                </tr>
+                 <tr>
+                    <td>6</td>
+                    <td>PT Sumberdaya Dian Mandiri</td>
+                    <td>Pengadaan Seragam Kerja</td>
+                    <td>Desember 2024</td>
+                </tr>
+                 <tr>
+                    <td>7</td>
+                    <td>TK Negeri Tegal</td>
+                    <td>5.1.02.01.01.0012 - Belanja Bahan-Bahan Lainnya</td>
+                    <td>Februari 2025</td>
+                </tr>
+                 <tr>
+                    <td>8</td>
+                    <td>TK Negeri Tegal</td>
+                    <td>5.1.02.01.01.0012 - Belanja Bahan-Bahan Lainnya</td>
+                    <td>Februari 2025</td>
+                </tr>
+                 <tr>
+                    <td>9</td>
+                    <td>TK Negeri Tegal</td>
+                    <td>5.1.02.03.03.0010 - Belanja Pemeliharaan Bangunan Gedung-Bangunan Gedung Tempat Kerja-Bangunan Gedung Tempat Pendidikan</td>
+                    <td>Februari 2025</td>
+                </tr>
+                 <tr>
+                    <td>10</td>
+                    <td>TK Negeri Besuki</td>
+                    <td>5.1.02.01.01.0012 - Belanja Bahan-Bahan Lainnya</td>
+                    <td>Februari 2025</td>
+                </tr>
+                 <tr>
+                    <td>11</td>
+                    <td>TK Negeri Besuki</td>
+                    <td>5.1.02.03.03.0010 - Belanja Pemeliharaan Bangunan Gedung- Bangunan Gedung Tempat Kerja- Bangunan Gedung Tempat Pendidikan</td>
+                    <td>Februari 2025</td>
+                </tr>
+                 <tr>
+                    <td>12</td>
+                    <td>TK Negeri Besuki</td>
+                    <td>5.1.02.01.01.0012 Belanja Bahan-Bahan Lainnya</td>
+                    <td>Mei 2025</td>
+                </tr>
+                 <tr>
+                    <td>13</td>
+                    <td>TK Negeri Besuki</td>
+                    <td>5.1.02.03.03.0010 Belanja Pemeliharaan Bangunan Gedung-Bangunan Gedung Tempat Kerja-Bangunan Gedung Tempat Pendidikan</td>
+                    <td>Mei 2025</td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>TK Negeri Tegal</td>
+                    <td>5.1.02.01.01.0012 Belanja Bahan-Bahan Lainnya</td>
+                    <td>Mei 2025</td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td>TK Negeri Tegal</td>
+                    <td>5.1.02.01.01.0012 Belanja Bahan-Bahan Lainnya</td>
+                    <td>Mei 2025</td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <<td>TK Negeri Tegal</td>
+                    <td>5.1.02.03.03.0010 Belanja Pemeliharaan Bangunan Gedung-Bangunan Gedung Tempat Kerja-Bangunan Gedung Tempat Pendidikan</td>
+                    <td>Mei 2025</td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td>TK Negeri Tegal</td>
+                    <td>Pelaksanaan Kegiatan Pembelajaran dan bermain</td>
+                    <td>Agustus 2025</td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td>TK Negeri Tegal</td>
+                    <td>Pelaksanaan Kegiatan Pembelajaran dan bermain</td>
+                    <td>Agustus 2025</td>
+                </tr>
+                <tr>
+                    <td>19</td>
+                    <td>TK Negeri Tegal</td>
+                    <td>Pemeliharaan Sarana dan Prasarana Sekolah</td>
+                    <td>Agustus 2025</td>
+                </tr>
+                <tr>
+                    <td>20</td>
+                    <td>TK Negeri Tegal</td>
+                    <td>Pelaksanaan Kegiatan Pembelajaran dan bermain</td>
+                    <td>November 2025</td>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td>TK Negeri Tegal</td>
+                    <td>Pelaksanaan Kegiatan Pembelajaran dan bermain</td>
+                    <td>November 2025</td>
+                </tr>
+                <tr>
+                    <td>22</td>
+                    <td>TK Negeri Tegal</td>
+                    <td>Pemeliharaan Sarana dan Prasarana Sekolah</td>
+                    <td>November 2025</td>
+                </tr>
+                <tr>
+                    <td>23</td>
+                    <td>PT PGAS SOLUTION</td>
+                    <td>Rapat koordinasi tahunan</td>
+                    <td>Desember 2025 </td>
+                </tr>
+                <tr>
+                    <td>24</td>
+                    <td>PT PERMATA KARYA JASA</td>
+                    <td>Pengadaan Seragam Pekerja PT Permata Karya Jasa Penempatan All User Tahun 2025 Tahap 5</td>
+                    <td>Januari 2026 </td>
+                </tr>
+                <tr>
+                    <td>24</td>
+                    <td>PT PERMATA KARYA JASA</td>
+                    <td>Pengadaan Seragam Pekerja PT Permata Karya Jasa Penempatan All User Tahun 2025 Tahap 7</td>
+                    <td>Januari 2026 </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <footer id="kontak">
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h3>PT. Maya Langgeng Abadi</h3>
+                <p>Mitra bisnis perdagangan dan supplier umum tepercaya Anda.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Alamat Kantor</h3>
+                <p>Jl. Raya Bekasi KM.17 No.5<br>Kel. Jatinegara, Kec. Cakung<br>Kota Jakarta Timur, DKI Jakarta<br>Kode Pos 13930</p>
+            </div>
+            <div class="footer-section">
+                <h3>Hubungi Kami</h3>
+                <p><strong>Telepon:</strong> 0852 1156 2200</p>
+                <p><strong>Email:</strong> mla.jakarta2024@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 PT. Maya Langgeng Abadi. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
